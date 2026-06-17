@@ -1,0 +1,1 @@
+for i in range(4,0,-1): print(*range(1,i+1),sep="*")

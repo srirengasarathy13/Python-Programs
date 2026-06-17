@@ -1,0 +1,3 @@
+a = [1,2,3,1,2,5]
+n = int(input())
+print(a.count(n))

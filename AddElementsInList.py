@@ -21,3 +21,4 @@ print(a)
 
 a = input("Enter the elements : ")
 print(a.split(","))
+print("Thank You")

@@ -8,7 +8,7 @@ def hollow_left_triangle(n, sym):
             if j == 1 or j == i or i == n:
                 temp += sym
             else:
-                temp += " "
+                temp += "  "
         print(temp[:-1])
 
 

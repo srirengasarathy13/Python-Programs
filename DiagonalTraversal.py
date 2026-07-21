@@ -9,4 +9,7 @@ for d in range(rows + cols - 1):
         if 0 <= j < cols:
             temp += words[i][j]
     result.append(temp)
+for i in range(len(result)):
+    if i%2!=0:
+        result[i] = result[i][::-1]
 print(result) 

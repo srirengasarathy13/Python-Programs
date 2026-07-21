@@ -12,4 +12,5 @@ for d in range(rows + cols - 1):
 for i in range(len(result)):
     if i%2!=0:
         result[i] = result[i][::-1]
+
 print(result) 

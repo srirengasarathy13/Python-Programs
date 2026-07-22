@@ -1,4 +1,6 @@
-words = ["car", "god", "one","python"]
+
+str1 = input("Enter words separated by , : ")
+words = str1.split(",")
 rows = len(words)
 cols = max(len(word) for word in words)
 result = []

@@ -1,4 +1,4 @@
 from openpyxl import *
-path = 'Data.xlsx'
+path = r'Excel\Data.xlsx'
 workbook = Workbook()
 workbook.save(path)

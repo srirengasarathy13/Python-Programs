@@ -1,6 +1,7 @@
 from openpyxl import *
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.table import Table,TableStyleInfo
+from openpyxl.worksheet.datavalidation import DataValidation
 import os 
 
 path = r'Excel\Data.xlsx'
@@ -48,9 +49,24 @@ worksheet.append(['Intial','Name'])
 worksheet.append(['G R','Harini'])
 worksheet.append(['A','Prithika'])
 
-workbook.active = workbook.index(worksheet)
-
-
+worksheet = workbook['Boys']
+# workbook.active = workbook.index(worksheet) # Activating the current sheet.
+print(workbook.active)
+workbook.create_sheet('Boys&Girls')
+worksheet = workbook['Boys&Girls']
+worksheet.append(['Intial','FirstName','LastName','Gender'])
+genderValidator = DataValidation('list',formula1='Male,Female',allow_blank=True)
+worksheet.add_data_validation(genderValidator)
+genderValidator.add('D2:D1048576')
+worksheet.append(['R','Sri','Rengasarathy'])
+worksheet.append(['R','Yuvaraj','Kannan'])
+worksheet.append(['R','Naveen','Raja'])
+worksheet.append(['P S','Kiruba','Nidhi'])
+worksheet.append(['Y','Nikish','Daniel'])
+worksheet.append(['J S','Prawin','Kumar'])
+worksheet.append(['M','Sethu','Raj'])
+worksheet.append(['G R','Harini',''])
+worksheet.append(['A','Prithika',''])
 # workbook[workbook.sheetnames[0]].title = 'BOYS'
 # worksheet.title = 'GIRLS'
 
@@ -60,6 +76,12 @@ workbook.active = workbook.index(worksheet)
 # else:
 #     table = workbook.tables['Employee_Table']
 
-print(workbook.active)
+for i in worksheet.iter_rows():
+    for j in i:
+        print(j.value,end=" ")
+    print()
+
+
+
 workbook.save(path)
 workbook.close()

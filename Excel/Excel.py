@@ -2,6 +2,7 @@ from openpyxl import *
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.table import Table,TableStyleInfo
 from openpyxl.worksheet.datavalidation import DataValidation
+from openpyxl.comments import Comment
 import os 
 
 path = r'Excel\Data.xlsx'
@@ -80,8 +81,7 @@ for i in worksheet.iter_rows():
     for j in i:
         print(j.value,end=" ")
     print()
-
-
+worksheet['A12'].comment = Comment(text="This is a Comment.", author="Sri")
 
 workbook.save(path)
 workbook.close()

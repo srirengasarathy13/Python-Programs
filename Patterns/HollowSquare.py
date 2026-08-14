@@ -10,8 +10,8 @@ for i in range(n):
     print(temp[:-1])
 
 """
-row=int(input("Enter the no. of rows: "))
-for i in range(1,row+1):
-    if i==1 or i==row:print(('* '*row).strip())
-    else:print('* '+'  '*(row-2)+'*')
+def HollowSquare(row):
+    for i in range(1,row+1):
+        if i==1 or i==row:print(('* '*row).strip())
+        else:print('* '+'  '*(row-2)+'*')
  

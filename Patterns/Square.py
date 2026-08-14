@@ -6,6 +6,7 @@ for i in range(n) :
     print()
 
 """
-n = int(input("Enter the no. of rows: "))
-for i in range(n):
-    print("* "*n)
+def Square():
+    n = int(input("Enter the no. of rows: "))
+    for i in range(n):
+        print("* "*n)

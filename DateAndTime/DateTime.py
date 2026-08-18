@@ -1,25 +1,27 @@
 from datetime import datetime, time, timedelta, date
 from zoneinfo import ZoneInfo
 
-# timezone = ZoneInfo('Asia/Kolkata')
-# now = datetime.now(tz=timezone)
 
 
 
-# TODAY = datetime.now()
-# print(TODAY.time())
+
+Today = datetime.now()
+# print(Today.time())
 # print(date.today())
 
 # dateB = datetime.strptime('03-08-2026','%d-%m-%Y')
 # print(dateB)
 
-# dateB = dateB.replace(tzinfo=timezone)
-# print(datetime.combine(now, time=time(8,59,50)))
+Today = Today.replace(2003,5,6)
+# print(Today)
 
-datetime1 = '25/12/2026'
-datetime2 = datetime.strptime(datetime1,'%d/%m/%Y')
-print(datetime2.strftime('%d-%m-%Y'))
+# datetime1 = '25/12/2026'
+# datetime2 = datetime.strptime(datetime1,'%d/%m/%Y')
 
+# print(today-datetime2)
 
-# print(now-dateB)
-# print(datetime.strftime(now + timedelta(days=1),'%d-%m-%Y'))
+# print(datetime.strftime(today + timedelta(days=1),'%d-%m-%Y'))
+
+timezone = ZoneInfo('Asia/Tokyo')
+now = datetime.now(tz=timezone)
+print(now)

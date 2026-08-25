@@ -1,14 +1,38 @@
-from nicegui import app,run,ui
+from nicegui import ui
+
+
+@ui.page('/Main')
+def main():
+    ui.label('Main Page')
+
+    ui.button(
+        'Back',
+        on_click=lambda: ui.navigate.to('/'),
+        icon='arrow_back'
+    )
+
 
 @ui.page('/')
 def home():
-    ui.label("Home")
-    ui.button("Click",on_click=lambda:ui.navigate.to("/a"))
+    ui.label('Home Page')
 
-@ui.page('/a')
-def aPage():
-    ui.label("A Page") 
-    ui.button("Click",on_click=lambda:ui.navigate.to("/"))
-    
-    
-ui.run(host="0.0.0.0",port=7000)
+    ui.button(
+        'Next',
+        on_click=lambda: ui.navigate.to('/Main'),
+        color='green',
+        icon='home'
+    )
+    with ui.card().classes('absolute-center w-[50%] items-center'):
+            ui.input(
+                label='UserName',
+                placeholder='Enter your UserName'
+            )
+
+            ui.input(
+                label='Password',
+                placeholder='Enter your Password',
+                password=True
+            )
+
+
+ui.run(port=7000)

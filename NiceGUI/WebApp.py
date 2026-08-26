@@ -23,16 +23,32 @@ def home():
         icon='home'
     )
     with ui.card().classes('absolute-center w-[50%] items-center'):
-            ui.input(
+            userName = ui.input(
                 label='UserName',
-                placeholder='Enter your UserName'
+                placeholder='Enter your UserName',
+                value="Sri"
             )
 
-            ui.input(
+            def enableDisableUsername():
+                 if userName.enabled:
+                      userName.disable()
+                 else:
+                      userName.enable()
+
+            passWord = ui.input(
                 label='Password',
                 placeholder='Enter your Password',
                 password=True
             )
+
+            def login():
+                print(userName.value)
+                print(passWord.value)
+
+            ui.button("Login",on_click=login)
+
+    ui.button("Enable/Disable", on_click=enableDisableUsername)
+
 
 
 ui.run(port=7000)

@@ -1,28 +1,12 @@
-from nicegui import ui
-
-
-@ui.page('/Main')
-def main():
-    ui.label('Main Page')
-
-    ui.button(
-        'Back',
-        on_click=lambda: ui.navigate.to('/'),
-        icon='arrow_back'
-    )
-
+from nicegui import ui,app
 
 @ui.page('/')
 def home():
-    ui.label('Home Page')
+    ui.add_css('''
+    body {background-image: url("/static/aesthetic_moon.jpg");background-size: cover;background-position:top center;background-attachment: fixed;}
 
-    ui.button(
-        'Next',
-        on_click=lambda: ui.navigate.to('/Main'),
-        color='green',
-        icon='home'
-    )
-    with ui.card().classes('absolute-center w-[50%] items-center'):
+    ''')
+    with ui.card().classes('absolute-center w-[50%] items-center').style('background-color: rgba(1, 1, 1, 0.6); backdrop-filter: blur(1px); border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);'):
             userName = ui.input(
                 label='UserName',
                 placeholder='Enter your UserName',
@@ -38,7 +22,8 @@ def home():
             passWord = ui.input(
                 label='Password',
                 placeholder='Enter your Password',
-                password=True
+                password=True,
+                password_toggle_button=True
             )
 
             def login():
@@ -50,5 +35,5 @@ def home():
     ui.button("Enable/Disable", on_click=enableDisableUsername)
 
 
-
+app.add_static_files('/static','NiceGUI\static')
 ui.run(port=7000)
